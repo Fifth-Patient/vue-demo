@@ -31,6 +31,16 @@ const skillRouter = {
       path: 'ref-with-if',
       name: 'ref-with-if',
       component: () => import('./views/skill/ref-with-if')
+    },
+    {
+      path: 'multi-index-1',
+      name: 'multi-index-1',
+      component: () => import('./views/skill/multi-index-vue/index-1')
+    },
+    {
+      path: 'multi-index-2',
+      name: 'multi-index-2',
+      component: () => import('./views/skill/multi-index-vue/index-2')
     }
   ]
 }
