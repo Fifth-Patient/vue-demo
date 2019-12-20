@@ -41,6 +41,11 @@ const skillRouter = {
       path: 'multi-index-2',
       name: 'multi-index-2',
       component: () => import('./views/skill/multi-index-vue/index-2')
+    },
+    {
+      path: 'dollar-event',
+      name: 'dollar-event',
+      component: () => import('./views/skill/dollar-event')
     }
   ]
 }
