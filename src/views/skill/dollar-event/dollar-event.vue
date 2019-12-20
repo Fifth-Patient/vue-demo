@@ -3,8 +3,8 @@
     <button @click="handleClick">$event empty param</button>
     <button @click="handleParamClick('clcik', $event)">$event with param</button>
 
-    <emit-event @dispatch="emitClick">emitClick</emit-event>
-    <emit-event @dispatch="emitParamClick('val', $event)">emitClickUpdate</emit-event>
+    <emit-event @dispatch="emitClick">emit click</emit-event>
+    <emit-event @dispatch="emitParamClick('val', $event)">emit param click</emit-event>
   </div>
 </template>
 
