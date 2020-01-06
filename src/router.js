@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import SkillLayout from './views/skill-layout.vue'
+import DemoLayout from './views/demo-layout.vue'
 import Home from './views/Home.vue'
 
 
@@ -46,6 +47,24 @@ const skillRouter = {
       path: 'dollar-event',
       name: 'dollar-event',
       component: () => import('./views/skill/dollar-event')
+    },
+    {
+      path: 'control-panel',
+      name: 'control-panel',
+      component: () => import('./views/skill/control-panel')
+    }
+  ]
+}
+
+const demoRouter = {
+  path: '/demo',
+  name: 'demo-views',
+  component: DemoLayout,
+  children: [
+    {
+      path: 'router-nav',
+      name: 'router-nav',
+      component: () => import('./views/demo/router-nav')
     }
   ]
 }
@@ -54,7 +73,8 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     ...defaultRouters,
-    skillRouter
+    skillRouter,
+    demoRouter
   ]
 })
 
