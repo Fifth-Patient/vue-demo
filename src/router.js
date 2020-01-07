@@ -2,24 +2,20 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import SkillLayout from './views/skill-layout.vue'
 import DemoLayout from './views/demo-layout.vue'
-import Home from './views/Home.vue'
-
 
 Vue.use(VueRouter)
 
-const defaultRouters = [
+const rootRouter = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'root',
+    redirect: '/home',
+    component: ()=> import('./views/index-layout.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    path: '/home',
+    name: 'home',
+    component: () => import('./views/index-layout.vue')
   }
 ]
 
@@ -69,12 +65,22 @@ const demoRouter = {
   ]
 }
 
+const wildRouter = [
+  {
+    path: '*',
+    name: 'wid',
+    redirect: '/',
+    component: ()=> import('./views/index-layout.vue')
+  }
+]
+
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    ...defaultRouters,
+    ...rootRouter,
     skillRouter,
-    demoRouter
+    demoRouter,
+    ...wildRouter
   ]
 })
 
