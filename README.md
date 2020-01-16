@@ -1,10 +1,10 @@
-# stardust
+# Stardust
 
-> 星尘（stardust）：茫茫星空的一颗尘埃————代码收集区
+> 星尘（Stardust）：茫茫星空的一颗尘埃————代码收集区
 
 ## What
 
-- stardust是一个由`vue-cli`搭建的`vue`项目
+- Stardust是一个由`vue-cli`搭建的`vue`项目
 - 用于分享[技巧](https://github.com/Fifth-Patient/vue-skill/tree/master/src/views/skill)和小[demo](https://github.com/Fifth-Patient/vue-skill/tree/master/src/views/skill)
 - 内容不仅仅局限于`vue`，但技术栈主要以`vue`为主
 
@@ -28,9 +28,9 @@ src
 
 #### global
 
-- [ ] 建设首页
-- [ ] 删除脚手架生成的冗余文件
-- [ ] 统配路由界面
+- [x] 建设首页
+- [x] 删除脚手架生成的冗余文件
+- [x] 统配路由界面
 - [ ] lib/until.js
 - [ ] 国际化 多语言支持
 

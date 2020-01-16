@@ -68,8 +68,7 @@ const demoRouter = {
 const wildRouter = [
   {
     path: '*',
-    name: 'wid',
-    redirect: '/',
+    name: 'wild',
     component: ()=> import('./views/index-layout.vue')
   }
 ]
