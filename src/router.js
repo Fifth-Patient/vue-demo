@@ -10,7 +10,7 @@ const rootRouter = [
     path: '/',
     name: 'root',
     redirect: '/home',
-    component: ()=> import('./views/index-layout.vue')
+    component: () => import('./views/index-layout.vue')
   },
   {
     path: '/home',
@@ -69,7 +69,7 @@ const wildRouter = [
   {
     path: '*',
     name: 'wild',
-    component: ()=> import('./views/index-layout.vue')
+    component: () => import('./views/index-layout.vue')
   }
 ]
 
