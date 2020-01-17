@@ -50,7 +50,7 @@ src
 
 #### engineer
 
-- [ ] stylus
+- [x] stylus
 - [ ] less/sass/scss*
 - [ ] typescript
 - [ ] build

@@ -20,7 +20,7 @@ export default{
 }
 </script>
 
-<style>
+<style lang="stylus">
 .skill-layout {
   display: flex;
 }
