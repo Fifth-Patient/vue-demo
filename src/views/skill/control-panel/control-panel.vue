@@ -13,12 +13,11 @@
 
     <!-- 模拟pre真实使用场景 -->
     <pre v-text="$data" class="pre-panel"></pre>
-
   </div>
 </template>
 
 <script>
-import Package from "@/../package.json"
+import Package from "@/../package.json";
 
 export default {
   name: "views-skill-control-panel",
@@ -37,7 +36,7 @@ export default {
 .views-skill-control-panel {
   position: absolute;
   top: 0;
-  left: 0;
+  left: navbar-width;
   right: 0;
   bottom: 0;
 
@@ -64,12 +63,12 @@ export default {
     bottom: 20px;
     width: 380px;
     overflow: auto;
-    background: rgba(0, 0, 0, .7); // 建议半透明背景
+    background: rgba(0, 0, 0, 0.7); // 建议半透明背景
     color: #34ecff; // 亮色的颜色即可
     font-size: 16px;
-    font-weight normal;
-    line-height 20px;
-    text-indent 0;
+    font-weight: normal;
+    line-height: 20px;
+    text-indent: 0;
   }
 }
 </style>

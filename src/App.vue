@@ -5,5 +5,6 @@
 </template>
 
 <style lang="stylus">
-@import '~@/style/normalize.css'
+@import '~@/styles/normalize.css'
+@import '~@/styles/global.styl'
 </style>
