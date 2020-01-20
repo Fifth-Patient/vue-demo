@@ -5,8 +5,8 @@
       :key="index"
       class="router-item"
       :style="{ textIndent: useIndent ? `${indent}px` : ''}">
-      <a :href="getRouteFullPath(route)" :target="linkTarget" class="router-link">
-        {{ route.meta && route.meta.title ? route.meta.title + ' - ' : '' }} {{ route.name }}
+      <a :href="getRouteFullPath(route)" :target="linkTarget" class="router-link" :class="{ 'active': $route.name === route.name }">
+         {{ getRouteLabel(route) }}
       </a>
       <sub-router
         v-if="route.children"
@@ -27,7 +27,7 @@ export default {
     routes: {
       type: Array,
       default () {
-        return this.$router.options.routes 
+        return this.$router.options.routes
       }
     },
     useIndent: {
@@ -68,23 +68,40 @@ export default {
       } else {
         return route.path
       }
+    },
+    getRouteLabel (route) {
+      let routeLabel = ''
+      if (route.meta && route.meta.title) {
+        routeLabel = route.meta.title
+      } else {
+        routeLabel = route.name
+      }
+      return routeLabel
     }
   }
 }
 </script>
 
-<style>
+<style lang="stylus">
 .router-map {
   margin: 0;
   padding: 0;
-  padding-bottom: 20px;
+  &:not(:last-child) { 
+    padding-bottom: 20px;
+  }
 }
 .router-item {
   margin: 0;
   padding: 0;
-  padding-bottom: 10px;
+  &:not(:last-child) { 
+    padding-bottom: 10px;
+  }
 }
 .router-link {
   font-size: 16px;
+  text-decoration: none;
+  &.active {
+    font-weight: bold;
+  }
 }
 </style>

@@ -15,6 +15,9 @@ const rootRouter = [
   {
     path: '/home',
     name: 'home',
+    meta: {
+      title: '首页'
+    },
     component: () => import('./views/index-layout.vue')
   }
 ]
@@ -22,6 +25,9 @@ const rootRouter = [
 const skillRouter = {
   path: '/skill',
   name: 'skill-views',
+  meta: {
+    title: 'vue技巧'
+  },
   component: SkillLayout,
   children: [
     {
@@ -42,21 +48,33 @@ const skillRouter = {
     {
       path: 'dollar-event',
       name: 'dollar-event',
+      meta: {
+        title: '$event'
+      },
       component: () => import('./views/skill/dollar-event')
     },
     {
       path: 'control-panel',
       name: 'control-panel',
+      meta: {
+        title: '控制面板'
+      },
       component: () => import('./views/skill/control-panel')
     },
     {
       path: 'two-way-binding-base-type',
       name: 'two-way-binding-base-type',
+      meta: {
+        title: '自定义双向绑定(基本类型)'
+      },
       component: () => import('./views/skill/two-way-binding-base-type')
     },
     {
       path: 'two-way-binding-reference-type',
       name: 'two-way-binding-reference-type',
+      meta: {
+        title: '自定义双向绑定(引用类型)'
+      },
       component: () => import('./views/skill/two-way-binding-reference-type')
     }
   ]
@@ -66,10 +84,16 @@ const demoRouter = {
   path: '/demo',
   name: 'demo-views',
   component: DemoLayout,
+  meta: {
+    title: 'vue demo'
+  },
   children: [
     {
       path: 'router-nav',
       name: 'router-nav',
+      meta: {
+        title: '路由导航'
+      },
       component: () => import('./views/demo/router-nav')
     }
   ]
@@ -79,6 +103,9 @@ const wildRouter = [
   {
     path: '*',
     name: 'wild',
+    meta: {
+      title: '无主之地'
+    },
     component: () => import('./views/index-layout.vue')
   }
 ]

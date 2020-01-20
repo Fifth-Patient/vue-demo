@@ -36,7 +36,7 @@ export default {
 .views-skill-control-panel {
   position: absolute;
   top: 0;
-  left: navbar-width;
+  left: 0;
   right: 0;
   bottom: 0;
 
