@@ -53,6 +53,11 @@ const skillRouter = {
       path: 'two-way-binding-base-type',
       name: 'two-way-binding-base-type',
       component: () => import('./views/skill/two-way-binding-base-type')
+    },
+    {
+      path: 'two-way-binding-reference-type',
+      name: 'two-way-binding-reference-type',
+      component: () => import('./views/skill/two-way-binding-reference-type')
     }
   ]
 }
