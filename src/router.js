@@ -48,6 +48,11 @@ const skillRouter = {
       path: 'control-panel',
       name: 'control-panel',
       component: () => import('./views/skill/control-panel')
+    },
+    {
+      path: 'two-way-binding-base-type',
+      name: 'two-way-binding-base-type',
+      component: () => import('./views/skill/two-way-binding-base-type')
     }
   ]
 }
