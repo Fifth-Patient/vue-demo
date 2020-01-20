@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       fieldValue: this.insert,
-      fieldValueStringifty: JSON.stringify(this.insert) // 保存外部传入的变量快照，将在监听器中做比较使用
+      fieldValueStringify: JSON.stringify(this.insert) // 保存外部传入的变量快照，将在监听器中做比较使用
     }
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
         // 且此时应更新fieldValue 对象字符串快照
         if (currentValue !== this.fieldValue) {
           this.fieldValue = JSON.parse(currentValue)
-          this.fieldValueStringifty = currentValue
+          this.fieldValueStringify = currentValue
         }
       }
     },
@@ -62,7 +62,7 @@ export default {
         //   如果你不会兜兜转，那我想你应该feel到了整个更新流程
         // **如果被兜住了，先理解外部变量的改动，再理解内部变量的改动
         const currentValue = JSON.stringify(newVal)
-        if (currentValue !== this.fieldValueStringifty) {
+        if (currentValue !== this.fieldValueStringify) {
           this.$emit('output', JSON.parse(currentValue))
         }
       }
