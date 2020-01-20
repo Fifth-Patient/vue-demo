@@ -47,7 +47,7 @@ export default {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-75%);
+    transform: translateY(-60%);
   } 
 }
 
@@ -87,8 +87,17 @@ export default {
   width: 100%;
   text-align: center;
   .poetry {
-    transform: translateY(-75%);
+    transform: translateY(-60%);
     animation: poetry-moveup 1.5s;
+    .title {
+      padding: 5px 0;
+    }
+    .author {
+      margin: 3px 0 5px;
+    }
+    .container {
+      padding-top: 5px;
+    }
   }
   .view-link {
     position: absolute;

@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import title from './libs/title'
 
 Vue.config.productionTip = false
+
+router.beforeEach((to, from, next) => {
+  title(to.meta.title)
+  next()
+})
 
 new Vue({
   router,
