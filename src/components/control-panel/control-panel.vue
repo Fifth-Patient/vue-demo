@@ -5,11 +5,7 @@
     :class="[
       { 'position-left': position === 'left' },
       { 'position-right': position === 'right' }
-    ]">
-    <slot>
-      {{ defaultProps }}
-    </slot>
-  </pre>
+    ]"><slot>{{ defaultProps }}</slot></pre>
 </template>
 
 <script>
@@ -75,3 +71,4 @@ export default {
   right: 20px;
 }
 </style>
+
