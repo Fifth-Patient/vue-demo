@@ -1,6 +1,6 @@
 <template>
   <div class="skill-bus-child2">
-    {{ selfContent }} <button @click="handleClick">reload</button>
+    {{ selfContent }} <button @click="handleClick">reset</button>
   </div>
 </template>
 
