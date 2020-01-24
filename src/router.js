@@ -76,6 +76,14 @@ const skillRouter = {
         title: '自定义双向绑定(引用类型)'
       },
       component: () => import('./views/skill/two-way-binding-reference-type')
+    },
+    {
+      path: 'bus',
+      name: 'bus',
+      meta: {
+        title: '非父子组件通讯 - 总线模式'
+      },
+      component: () => import('./views/skill/bus')
     }
   ]
 }
