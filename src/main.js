@@ -5,6 +5,8 @@ import title from './libs/title'
 
 Vue.config.productionTip = false
 
+// Vue.prototype.bus = new Vue()
+
 router.beforeEach((to, from, next) => {
   title(to.meta.title)
   next()
