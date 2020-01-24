@@ -84,6 +84,14 @@ const skillRouter = {
         title: '非父子组件通讯 - 总线模式'
       },
       component: () => import('./views/skill/bus')
+    },
+    {
+      path: 'emitter',
+      name: 'emitter',
+      meta: {
+        title: '非父子组件通讯 - 事件广播派发'
+      },
+      component: () => import('./views/skill/emitter')
     }
   ]
 }
