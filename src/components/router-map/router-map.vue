@@ -5,9 +5,15 @@
       :key="index"
       class="router-item"
       :style="{ textIndent: useIndent ? `${indent}px` : ''}">
-      <a :href="getRouteFullPath(route)" :target="linkTarget" class="router-link" :class="{ 'active': $route.name === route.name }">
+      <router-link
+        tag="a"
+        :to="getRouteFullPath(route)"
+        @click.prevent="handleLink"
+        :target="linkTarget"
+        class="router-link"
+        :class="{ 'active': $route.name === route.name }">
          {{ getRouteLabel(route) }}
-      </a>
+      </router-link>
       <sub-router
         v-if="route.children"
         :routes="route.children"
@@ -63,6 +69,7 @@ export default {
   },
   methods: {
     getRouteFullPath (route) {
+      // TODO bug 三级路由，这里链接开始拼接错误
       if (this.parent && this.parent.path !== '/') {
         return this.parent.path + '/' + route.path
       } else {
