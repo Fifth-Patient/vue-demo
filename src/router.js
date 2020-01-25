@@ -5,6 +5,11 @@ import DemoLayout from './views/demo-layout.vue'
 
 Vue.use(VueRouter)
 
+// const routerPush = VueRouter.prototype.push
+// VueRouter.prototype.push = function push(location) {
+//   return routerPush.call(this, location).catch(error=> error)
+// }
+
 const rootRouter = [
   {
     path: '/',
@@ -21,6 +26,7 @@ const rootRouter = [
     component: () => import('./views/index-layout.vue')
   }
 ]
+
 
 const skillRouter = {
   path: '/skill',
@@ -81,7 +87,7 @@ const skillRouter = {
       path: 'bus',
       name: 'bus',
       meta: {
-        title: '非父子组件通讯 - 总线模式'
+        title: '非父子组件通讯(总线模式)'
       },
       component: () => import('./views/skill/bus')
     },
@@ -89,10 +95,41 @@ const skillRouter = {
       path: 'emitter',
       name: 'emitter',
       meta: {
-        title: '非父子组件通讯 - 事件广播派发'
+        title: '非父子组件通讯(事件广播派发)'
       },
       component: () => import('./views/skill/emitter')
-    }
+    },
+    {
+      path: 'lifecycle',
+      name: 'lifecycle',
+      meta: {
+        title: '生命周期'
+      },
+      component: () => import('./views/skill/lifecycle'),
+      children: [
+        {
+          path: 'render',
+          name: 'lifecycle-render',
+          meta: {
+            title: '生命周期(render)'
+          },
+          beforeEnter: (to, from, next) => {
+            // 没有mount=render query参数，将会在该路由守卫加上
+            if (to.query && !to.query.mount) {
+              to.query.mount = 'render'
+              next({
+                name: to.name,
+                query: {
+                  mount: 'render'
+                }
+              })
+            }
+            next()
+          },
+          component: () => import('./views/skill/lifecycle/render')
+        }
+      ]
+    },
   ]
 }
 
