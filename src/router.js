@@ -114,19 +114,19 @@ const skillRouter = {
             title: '生命周期(el)'
           },
           beforeEnter: (to, from, next) => {
-            // 没有mount=el query参数，将会在该路由守卫加上
-            if (to.query && !to.query.mount) {
-              to.query.mount = 'el'
+            // 没有type=el query参数，将会在该路由守卫加上
+            if (to.query && !to.query.type) {
+              to.query.type = 'el'
               next({
                 name: to.name,
                 query: {
-                  mount: 'el'
+                  type: 'el'
                 }
               })
             }
             next()
           },
-          component: () => import('./views/skill/lifecycle/el')
+          component: () => import('./views/skill/lifecycle/mount')
         },
         {
           path: 'template',
@@ -135,19 +135,19 @@ const skillRouter = {
             title: '生命周期(template)'
           },
           beforeEnter: (to, from, next) => {
-            // 没有mount=template query参数，将会在该路由守卫加上
-            if (to.query && !to.query.mount) {
-              to.query.mount = 'template'
+            // 没有type=template query参数，将会在该路由守卫加上
+            if (to.query && !to.query.type) {
+              to.query.type = 'template'
               next({
                 name: to.name,
                 query: {
-                  mount: 'template'
+                  type: 'template'
                 }
               })
             }
             next()
           },
-          component: () => import('./views/skill/lifecycle/template')
+          component: () => import('./views/skill/lifecycle/mount')
         },
         {
           path: 'render',
@@ -156,19 +156,19 @@ const skillRouter = {
             title: '生命周期(render)'
           },
           beforeEnter: (to, from, next) => {
-            // 没有mount=render query参数，将会在该路由守卫加上
-            if (to.query && !to.query.mount) {
-              to.query.mount = 'render'
+            // 没有type =render query参数，将会在该路由守卫加上
+            if (to.query && !to.query.type) {
+              to.query.type = 'render'
               next({
                 name: to.name,
                 query: {
-                  mount: 'render'
+                  type: 'render'
                 }
               })
             }
             next()
           },
-          component: () => import('./views/skill/lifecycle/render')
+          component: () => import('./views/skill/lifecycle/mount')
         },
         {
           path: 'useful',
@@ -177,13 +177,13 @@ const skillRouter = {
             title: '生命周期(常用)'
           },
           beforeEnter: (to, from, next) => {
-            // 没有mount=useful query参数，将会在该路由守卫加上
-            if (to.query && !to.query.mount) {
-              to.query.mount = 'useful'
+            // 没有type=useful query参数，将会在该路由守卫加上
+            if (to.query && !to.query.type) {
+              to.query.type = 'useful'
               next({
                 name: to.name,
                 query: {
-                  mount: 'useful'
+                  type: 'useful'
                 }
               })
             }
