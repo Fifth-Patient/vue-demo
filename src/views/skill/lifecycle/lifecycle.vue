@@ -27,7 +27,7 @@ export default {
   },
   watch: {
     '$route' () {
-      if (this.$route.query && this.$route.query.mount) {
+      if (this.$route.query && this.$route.query.type) {
         this.isShow = false
       } else {
         this.isShow = true
@@ -40,7 +40,7 @@ export default {
     }
   },
   created () {
-    if (this.$route.query && this.$route.query.mount) {
+    if (this.$route.query && this.$route.query.type) {
       this.isShow = false
     } else {
       this.isShow = true
