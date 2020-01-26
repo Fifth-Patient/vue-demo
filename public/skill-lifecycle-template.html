@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>skill-lifecycle-template</title>
+</head>
+<body>
+  <!-- 这个就叫 "#app" DOM -->
+  <div id="app">
+    <!--
+    <p v-text="msg"></p>
+    <p>{{ msg }}</p>
+    -->
+  </div>
+
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script>
+    window.onload = function() {
+      var vm = new Vue({
+        el: '#app',
+        template: '<b>{{ msg }}</b>', // 这个就叫 template 选项
+        props: {
+          insertContent: {
+            type: String,
+            default: 'insertContent'
+          }
+        },
+        data () {
+          return {
+            msg: 'Hey Jude!'
+          }
+        },
+        computed: {
+          reverseMsg () {
+            return this.msg.split('').reverse().join('')
+          }
+        },
+        methods: {
+          reversedMsg () {
+            return this.msg.split('').reverse().join('')
+          },
+          handleClick () {
+            this.msg = 'Hello World!'
+          },
+          handleDestroy () {
+            this.$destroy()
+          }
+        },
+        watch: {
+          msg () {
+            console.log(this.msg)
+          }
+        },
+        beforeMount () {
+          console.log("%c%s", "color:orangeRed", 'beforeMount--挂载之前的状态')
+          console.log("%c%s", "color:skyblue", "$el  :",this.$el)
+          // debugger
+        },
+        mounted () {
+          console.log("%c%s", "color:orangeRed", 'mounted--已经挂载的状态')
+          console.log("%c%s", "color:skyblue", "$el  :", this.$el)
+          console.log("%c%s", "color:skyblue", "#app :", document.querySelector('#app'))
+        }
+      })
+      // vm.$mount('#app')
+    }
+  </script>
+</body>
+</html>
