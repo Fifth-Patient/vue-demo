@@ -108,6 +108,48 @@ const skillRouter = {
       component: () => import('./views/skill/lifecycle'),
       children: [
         {
+          path: 'el',
+          name: 'lifecycle-el',
+          meta: {
+            title: '生命周期(el)'
+          },
+          beforeEnter: (to, from, next) => {
+            // 没有mount=el query参数，将会在该路由守卫加上
+            if (to.query && !to.query.mount) {
+              to.query.mount = 'el'
+              next({
+                name: to.name,
+                query: {
+                  mount: 'el'
+                }
+              })
+            }
+            next()
+          },
+          component: () => import('./views/skill/lifecycle/el')
+        },
+        {
+          path: 'template',
+          name: 'lifecycle-template',
+          meta: {
+            title: '生命周期(template)'
+          },
+          beforeEnter: (to, from, next) => {
+            // 没有mount=template query参数，将会在该路由守卫加上
+            if (to.query && !to.query.mount) {
+              to.query.mount = 'template'
+              next({
+                name: to.name,
+                query: {
+                  mount: 'template'
+                }
+              })
+            }
+            next()
+          },
+          component: () => import('./views/skill/lifecycle/template')
+        },
+        {
           path: 'render',
           name: 'lifecycle-render',
           meta: {

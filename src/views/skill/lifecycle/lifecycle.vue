@@ -38,6 +38,13 @@ export default {
     handleClick () {
       this.isShowProcess = !this.isShowProcess
     }
+  },
+  created () {
+    if (this.$route.query && this.$route.query.mount) {
+      this.isShow = false
+    } else {
+      this.isShow = true
+    }
   }
 }
 </script>
