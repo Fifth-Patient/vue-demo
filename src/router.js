@@ -169,6 +169,27 @@ const skillRouter = {
             next()
           },
           component: () => import('./views/skill/lifecycle/render')
+        },
+        {
+          path: 'useful',
+          name: 'lifecycle-useful',
+          meta: {
+            title: '生命周期(常用)'
+          },
+          beforeEnter: (to, from, next) => {
+            // 没有mount=useful query参数，将会在该路由守卫加上
+            if (to.query && !to.query.mount) {
+              to.query.mount = 'useful'
+              next({
+                name: to.name,
+                query: {
+                  mount: 'useful'
+                }
+              })
+            }
+            next()
+          },
+          component: () => import('./views/skill/lifecycle/useful')
         }
       ]
     },
