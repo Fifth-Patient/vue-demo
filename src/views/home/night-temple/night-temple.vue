@@ -10,7 +10,7 @@
     </div>
     <div class="view-link">
       <div v-for="(item, index) of VIEWLINKLIST" :key="index" class="link-block">
-        <a :href="item.link" :target="item.target" class="link">{{ item.label }}</a>
+        <router-link :to="item.link" :target="item.target" class="link">{{ item.label }}</router-link>
       </div>
     </div>
   </div>
