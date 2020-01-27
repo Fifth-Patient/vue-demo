@@ -56,7 +56,7 @@ export default {
       isAllRouter: true,
       useIndent: true,
       stepIndent: 15,
-      linkTaget: '_blank'
+      linkTaget: ''
     }
   },
   computed: {
