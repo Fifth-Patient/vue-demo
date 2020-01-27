@@ -1,7 +1,6 @@
 const cnzz = {
   src: process.env.VUE_APP_CNZZ,
   render () {
-    console.log(process.env)
     const NODE_ENV = process.env.NODE_ENV
     if (NODE_ENV === 'production') {
       const body = document.body
