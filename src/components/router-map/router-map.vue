@@ -6,7 +6,6 @@
       class="router-item"
       :style="{ textIndent: useIndent ? `${indent}px` : ''}">
       <router-link
-        tag="a"
         :to="getRouteFullPath(route)"
         @click.prevent="handleLink"
         :target="linkTarget"
@@ -16,9 +15,10 @@
       </router-link>
       <sub-router
         v-if="route.children"
+        :depth="$props.depth+1"
         :routes="route.children"
         :useIndent="useIndent"
-        :indent="$props.indent + $props.stepIndent"
+        :indent="$props.indent + $props.stepIndent * $props.depth"
         :link-target="linkTarget"
         :parent="route"
         :root="false"></sub-router>
@@ -39,6 +39,10 @@ export default {
     useIndent: {
       type: Boolean,
       default: true
+    },
+    depth: {
+      type: Number,
+      default: 1
     },
     indent: {
       type: Number,
