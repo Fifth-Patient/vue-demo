@@ -8,7 +8,7 @@ export default {
   },
   render() {
     return (
-      <p>
+      <p class="skill-jsx-vue">
         hello
         <b> {this.type}</b>
       </p>
@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.skill-jsx-vue {
+  color: green;
+}
+</style>

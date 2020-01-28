@@ -212,6 +212,16 @@ const skillRouter = {
           return JSX.VUE
         }
       }
+    },
+    {
+      path: 'css-in-js',
+      name: 'JSX(css-in-js)',
+      component: async () => {
+        const JSX = await import('./views/skill/JSX')
+        if (JSX) {
+          return JSX.CSS_IN_JS
+        }
+      }
     }
   ]
 }
