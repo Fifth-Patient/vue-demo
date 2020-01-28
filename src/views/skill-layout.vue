@@ -46,6 +46,7 @@ export default{
     height: 100%;
     border-right: 1px solid #ccc;
     background-color: navbar-bg-color;
+    overflow: auto;
   }
   .layout-wrapper {
     flex: 1 1 auto;
