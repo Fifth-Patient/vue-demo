@@ -193,6 +193,26 @@ const skillRouter = {
         }
       ]
     },
+    {
+      path: 'JSX-js',
+      name: 'JSX(*.js)',
+      component: async () => {
+        const JSX = await import('./views/skill/JSX')
+        if (JSX) {
+          return JSX.JS
+        }
+      }
+    },
+    {
+      path: 'JSX-vue',
+      name: 'JSX(*.vue)',
+      component: async () => {
+        const JSX = await import('./views/skill/JSX')
+        if (JSX) {
+          return JSX.VUE
+        }
+      }
+    }
   ]
 }
 
