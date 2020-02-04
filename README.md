@@ -33,7 +33,6 @@ src
 - [x] 统配路由界面
 - [ ] lib/until.js
 - [ ] 国际化 多语言支持
-- [ ] 自定安装插件/组件
 
 #### components
 
@@ -42,8 +41,8 @@ src
 
 #### skill
 
-- [ ] 自定义双向绑定
-- [ ] 组件通讯
+- [x] 自定义双向绑定
+- [x] 组件通讯
 
 #### demo
 
@@ -54,7 +53,6 @@ src
 - [x] stylus
 - [ ] less/sass/scss*
 - [ ] typescript
-- [ ] build
 
 ## Why
 
