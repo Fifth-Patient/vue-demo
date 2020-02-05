@@ -56,6 +56,7 @@ function getBase64(imgUrl, callback) {
   }
   xhr.send();
 }
+
 getBase64('/favicon.ico', function callback(e) {
   let base64 = e.target.result;
   console.log("方式一》》》》》》》》》", base64)
@@ -93,3 +94,66 @@ function stopEvent($event, isStop) {
 window.onclick = function (e) {
   stopEvent(e, true)
 }
+
+/* 获取相对时间 */
+function getReceivedTime(formatedDateTime) {
+  if (formatedDateTime && formatedDateTime !== '') {
+    const now = new Date()
+    const deltaTimestamp = now - new Date(formatedDateTime).getTime()
+    const days = Math.floor(deltaTimestamp / (24 * 3600 * 1000))
+    const leave1 = deltaTimestamp % (24 * 3600 * 1000) // 计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    // 计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) // 计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    // 计算相差秒数
+    var leave3 = leave2 % (60 * 1000) // 计算分钟数后剩余的毫秒数
+    var seconds = Math.round(leave3 / 1000)
+    console.log(' 相差 ' + days + '天 ' + hours + '小时 ' + minutes + ' 分钟' + seconds + ' 秒')
+
+    return days > 0 ? `${days}天` : '今天'
+  }
+  return '-'
+}
+
+getReceivedTime('2020-01-01 00:00:00')
+getReceivedTime('1577808000000')
+
+/* 字符串转16进制 */
+function strToHexCharCode (str) {
+  if (str === '') {
+    return ''
+  }
+  var hexCharCode = []
+  hexCharCode.push('0x')
+  for (var i = 0; i < str.length; i++) {
+    hexCharCode.push((str.charCodeAt(i)).toString(16))
+  }
+  return hexCharCode.join('')
+}
+
+/* 16进制转字符串 */
+function hexCharCodeToStr (hexCharCodeStr) {
+  var trimedStr = hexCharCodeStr.trim()
+  var rawStr =
+    trimedStr.substr(0, 2).toLowerCase() === '0x'
+      ? trimedStr.substr(2)
+      : trimedStr
+  var len = rawStr.length
+  if (len % 2 !== 0) {
+    alert('Illegal Format ASCII Code!')
+    return ''
+  }
+  var curCharCode
+  var resultStr = []
+  for (var i = 0; i < len; i = i + 2) {
+    curCharCode = parseInt(rawStr.substr(i, 2), 16) // ASCII Code Value
+    resultStr.push(String.fromCharCode(curCharCode))
+  }
+  return resultStr.join('')
+}
+
+var hexStr = strToHexCharCode('string')
+var string = hexCharCodeToStr(hexStr)
+
+console.log('string' === string)
