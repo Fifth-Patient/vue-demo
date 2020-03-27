@@ -2,9 +2,7 @@ const path = require('path')
 
 module.exports = {
   // runtimeCompiler: true, // only need runtime
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/stardust/'
-    : '/',
+  publicPath: process.VUE_APP_PUBLIC_PATH,
   configureWebpack: {
     devtool: 'source-map'
   },
