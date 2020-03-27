@@ -5,6 +5,9 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
     ? '/stardust/'
     : '/',
+  configureWebpack: {
+    devtool: 'source-map'
+  },
   chainWebpack: config => {
     /**
      * 删除 dist/index.html 标签的 preload prefetch 属性
