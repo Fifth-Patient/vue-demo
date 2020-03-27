@@ -21,7 +21,8 @@
         :indent="$props.indent + $props.stepIndent * $props.depth"
         :link-target="linkTarget"
         :parent="route"
-        :root="false"></sub-router>
+        :base-path="getSubBasePath(route)"
+        :is-root="false"></sub-router>
     </li>
   </ul>
 </template>
@@ -66,6 +67,10 @@ export default {
     parent: {
       type: Object,
       default: () => null
+    },
+    basePath: {
+      type: String,
+      default: ''
     }
   },
   components: {
@@ -73,11 +78,10 @@ export default {
   },
   methods: {
     getRouteFullPath (route) {
-      // TODO bug 三级路由，这里链接开始拼接错误
-      if (this.parent && this.parent.path !== '/') {
-        return this.parent.path + '/' + route.path
-      } else {
+      if (this.isRoot) {
         return route.path
+      } else {
+        return `${this.basePath}/${route.path}`
       }
     },
     getRouteLabel (route) {
@@ -88,6 +92,13 @@ export default {
         routeLabel = route.name
       }
       return routeLabel
+    },
+    getSubBasePath (route) {
+      if (this.basePath === '') {
+        return `${route.path}`
+      } else {
+        return `${this.basePath}/${route.path}`
+      }
     }
   }
 }
