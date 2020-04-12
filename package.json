@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "deploy": "deploy.sh",
     "build": "vue-cli-service build",
+    "build_no_clean": "vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
