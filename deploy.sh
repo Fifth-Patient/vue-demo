@@ -14,13 +14,12 @@ npm run build_no_clean
 
 # git commit
 cd dist
+echo deploy size by commit id $current_commit_id at $time >> deploy.log
 git add -A
 git commit -m "deploy size by commit id $current_commit_id at $time"
-echo deploy size by commit id $current_commit_id at $time
 
 # 以变基方式拉取github的gh-pages分支
 git pull git@github.com:Fifth-Patient/stardust.git gh-pages --rebase
 
 # 部署到github的gh-pages分支
 git push git@github.com:Fifth-Patient/stardust.git gh-pages:gh-pages
-
